@@ -23,6 +23,7 @@ except ImportError:
 import click
 from jinja2 import is_undefined
 from markupsafe import Markup
+from slugify import slugify
 from werkzeug import urls
 from werkzeug.http import http_date
 from werkzeug.posixemulation import rename
@@ -376,14 +377,6 @@ class WorkerPool(object):
 
     def wait_for_completion(self):
         self.tasks.join()
-
-
-def slugify(value):
-    # XXX: not good enough
-    value_ascii = value.strip().encode('ascii', 'ignore').strip().decode()
-    rv = u' '.join(value_ascii.split()).lower()
-    words = _slug_re.findall(rv)
-    return '-'.join(words)
 
 
 class Url(object):
