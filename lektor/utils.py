@@ -42,7 +42,6 @@ _slashes_re = re.compile(r'(/\.{1,2}(/|$))|/')
 _last_num_re = re.compile(r'^(.*)(\d+)(.*?)$')
 _list_marker = object()
 _value_marker = object()
-_slug_re = re.compile(r'([a-zA-Z0-9.-_]+)')
 
 # Figure out our fs encoding, if it's ascii we upgrade to utf-8
 fs_enc = sys.getfilesystemencoding()
